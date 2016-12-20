@@ -28,4 +28,4 @@ Here's some useful Github guides if you need it: [guides.github.com](https://gui
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](InfoTrafic-Parser/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details
