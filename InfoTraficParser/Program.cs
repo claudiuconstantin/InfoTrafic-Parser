@@ -5,12 +5,18 @@ namespace InfotraficParser
 {
     public class Program
     {
-        private const string InfoTraficUrl = "politiaromana.ro/ro/info-trafic";
-        private const string AccidentsUrl = "politiaromana.ro/ro/info-trafic/situatia-accidentelor-rutiere-grave-inregistrate-in-ultimele-24-de-ore-la-nivel-national";
-
         private static void Main()
         {
-            var crawler = new PageCrawler(AccidentsUrl);
+            Bootstrap.Start();
+
+            ReadItems();
+
+            Console.ReadKey(); // wait
+        }
+
+        private static void ReadItems()
+        {
+            var crawler = Bootstrap.Container.GetInstance<PageCrawler>();
 
             var keepReading = true;
             while (keepReading)
@@ -23,8 +29,6 @@ namespace InfotraficParser
 
                 LogItemsToConsole(items);
             }
-
-            Console.ReadKey(); // wait
         }
 
         private static void LogItemsToConsole(IEnumerable<ContentItem> contentItems)
