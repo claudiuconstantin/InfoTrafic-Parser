@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Logging;
+using System;
 using System.Collections.Generic;
 
 namespace InfotraficParser
@@ -33,25 +34,20 @@ namespace InfotraficParser
 
         private static void LogItemsToConsole(IEnumerable<ContentItem> contentItems)
         {
+            var log = Bootstrap.Container.GetInstance<ILog>();
+
             foreach (var contentItem in contentItems)
             {
                 var link = contentItem.Link;
-                Log($"http://[...]{link.Substring(contentItem.Link.LastIndexOf('/'), link.Length - link.LastIndexOf('/'))}:", ConsoleColor.Yellow);
+                log.Warn($"http://[...]{link.Substring(contentItem.Link.LastIndexOf('/'), link.Length - link.LastIndexOf('/'))}:"/*, ConsoleColor.Yellow*/);
 
                 foreach (var contentLine in contentItem.Content)
                 {
-                    Log($" {contentLine.Substring(0, Math.Min(contentLine.Length, 100))}[...]"); // truncate at 100 characters for now
+                    log.Debug($" {contentLine.Substring(0, Math.Min(contentLine.Length, 100))}[...]"); // truncate at 100 characters for now
                 }
 
-                Log();
+                log.Info("\n");
             }
-        }
-
-        private static void Log(string message = "", ConsoleColor color = ConsoleColor.Gray)
-        {
-            Console.ForegroundColor = color;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.Gray; // reset
         }
     }
 }

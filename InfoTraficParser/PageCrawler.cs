@@ -1,8 +1,8 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HtmlAgilityPack;
 
 namespace InfotraficParser
 {
@@ -70,7 +70,7 @@ namespace InfotraficParser
 
         private string GetCleanValue(string input)
         {
-            return HttpUtility.HtmlDecode(input.Replace(Environment.NewLine, string.Empty).Trim());
+            return HttpUtility.HtmlDecode(input.Replace(Environment.NewLine, string.Empty)).Trim();
         }
     }
 }
