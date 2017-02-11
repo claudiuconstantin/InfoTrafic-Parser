@@ -1,4 +1,7 @@
 # InfoTrafic Parser
+**Update**: starting January 2017 the Romanian Police stopped updating the website section we were parsing for this project. No new info is currently added, so our work here doesn't make sense anymmore. If we decide to pivot this project we'll further anounce it.
+
+
 This is a simple tool to extract Traffic Accidents information from [Romanian Police](http://politiaromana.ro/) website. It is a **work-in-progress**, after-work project, so we warmly welcome anyone who wants to contribute.
 
 ## The #why and the #how
@@ -24,6 +27,7 @@ Here's some useful Github guides if you need it: [guides.github.com](https://gui
 ## History
 
  - December 2016 - work started
+ - January 2017 - works stops due to external input feed inactivity
 
 
 ## License
